@@ -216,10 +216,13 @@ async def retry(config_form_value, mcp_config_value, mcp_servers_btn_value,
     index = e._data["payload"][0]["index"]
     chatbot_value = chatbot_value[:index]
 
-    async for chunk in submit(None, config_form_value, mcp_config_value,
-                              mcp_servers_btn_value, chatbot_value,
-                              oss_state_value):
-        yield chunk
+    # 直接将submit函数的第一个结果返回
+    generator = submit(None, config_form_value, mcp_config_value,
+                       mcp_servers_btn_value, chatbot_value,
+                       oss_state_value)
+    async for result in generator:
+        yield result
+        break
 
 
 def clear():
@@ -391,7 +394,6 @@ with gr.Blocks(css=css, js=js) as demo:
         with antd.Badge.Ribbon(placement="start"):
             with ms.Slot("text"):
                 with antd.Typography.Link(elem_style=dict(color="#fff"),
-                                          type="link",
                                           href="https://modelscope.cn/mcp",
                                           href_target="_blank"):
                     with antd.Flex(align="center",
