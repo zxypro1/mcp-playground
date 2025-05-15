@@ -42,7 +42,7 @@ resources:
           - app.py
       functionName: '{{functionName}}'
       code: ./code
-      # instanceConcurrency: 200
+      instanceConcurrency: 200
       # concurrencyConfig:
       #   reservedConcurrency: 1
       customDomain:
