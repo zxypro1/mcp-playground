@@ -524,5 +524,7 @@ with gr.Blocks(css=css, js=js) as demo:
                  cancels=[submit_event, retry_event],
                  queue=False)
 
-demo.queue(default_concurrency_limit=100, max_size=100).launch(ssr_mode=False,
-                                                               max_threads=100)
+demo.queue(default_concurrency_limit=100, max_size=100).launch(server_name="0.0.0.0",
+                                                             server_port=7860,
+                                                             ssr_mode=False,
+                                                             max_threads=100)

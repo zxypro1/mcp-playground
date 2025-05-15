@@ -8,3 +8,4 @@ langchain_mcp_adapters
 mcp
 exceptiongroup
 oss2
+pyopenssl==25.0.0

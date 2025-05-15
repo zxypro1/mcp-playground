@@ -29,7 +29,7 @@ resources:
       cpu: 0.5
       memorySize: 512
       diskSize: 512
-      logConfig: auto
+      # logConfig: auto
       environmentVariables:
         PATH: ${vars.path}
         PYTHONPATH: /code:/code/python:/opt/python

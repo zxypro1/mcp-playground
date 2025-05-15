@@ -3,6 +3,7 @@ services:
     MODELSCOPE_API_KEY:
       title: ModelScope API Key
       type: string
+      required: true
       default: ''
       sensitive: true
       description: 魔搭的 API Key。获取地址：https://www.modelscope.cn/my/myaccesstoken
