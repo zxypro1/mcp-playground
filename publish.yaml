@@ -1,14 +1,14 @@
 Edition: 3.0.0
 Type: Project
-Name: 名称
-Version: 版本，例如0.0.1 或者 dev
+Name: mcp-playground
+Version: dev
 Provider:
   - 阿里云 # 取值内容参考：https://api.devsapp.cn/v3/common/args.html
-Description: Serverless Devs 应用开发模板
-HomePage: https://www.serverless-devs.com
+Description: 魔搭 MCP Playground 模板
+HomePage: https://www.modelscope.cn/studios/modelscope/mcp-playground
 Tags: #标签详情
   - 模板
-  - Serverless Devs
+  - MCP
 Category: 新手入门 # 取值内容参考：https://api.devsapp.cn/v3/common/args.html
 Service: # 使用的服务
   函数计算: # 取值内容参考：https://api.devsapp.cn/v3/common/args.html
@@ -21,6 +21,7 @@ Parameters:
   additionalProperties: false # 不允许增加其他属性
   required: # 必填项
     - region
+    - functionName
   properties:
     region:
       title: 地域
@@ -31,3 +32,9 @@ Parameters:
         - cn-beijing
         - cn-hangzhou
         - cn-shanghai
+    functionName:
+      title: 函数名称
+      type: string
+      default: mcp-playground-${default-suffix}
+      pattern: "^[a-zA-Z_][a-zA-Z0-9-_]{0,127}$"
+      description: 只能包含字母、数字、下划线和中划线。不能以数字、中划线开头。长度在 1-128 之间。
